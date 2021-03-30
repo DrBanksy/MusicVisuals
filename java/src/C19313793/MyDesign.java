@@ -89,7 +89,6 @@ public class MyDesign extends Visual{
                     rainfall[i].update();
                     rainfall[i].render();
                 }
-
                 stroke(c, 255, 255); 
                 circles = new CircleOfCircles(this, 200, 200, lerpedAverage*300);
                 break;

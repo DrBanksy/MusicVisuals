@@ -15,7 +15,8 @@ public class WelcomeScreen {
         m.println(m.width/2);
         m.textAlign(m.CENTER, m.CENTER);
         m.fill(255);
-        m.text("Press space bar to start/stop music", m.width/2, m.height/2 + 50);
+        m.text("1) Press space bar to start/stop music", m.width/2, m.height/2 + 50);
+        m.text("2) Use 0-9 on the keyboard to see some cool stuff :)", m.width/2, m.height/2 + 90);
 
     }
 

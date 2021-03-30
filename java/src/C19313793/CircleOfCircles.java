@@ -24,7 +24,7 @@ public class CircleOfCircles implements Shape {
     @Override
     public void render(){
         m.translate(m.width/2, m.height/2);
-        for(float r = 0 ; r < 400; r+=depth) {
+        for(float r = 0 ; r < m.mouseX; r+=depth) {
             float c = 2*m.PI*r; 
             float aSegment = m.floor(c/depth);
             for(float i = 0; i < 360; i+=360/aSegment) {
