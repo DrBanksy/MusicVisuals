@@ -28,7 +28,6 @@ public class MyDesign extends Visual{
     int w, h;
     float[][] landscape;
     float move;
-    RectangleFun rectFun;
 
 
     int alpha;
