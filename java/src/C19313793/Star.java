@@ -1,6 +1,6 @@
 package C19313793;
 
-public class Star {
+public class Star implements Shape {
     float x, y, radius1, radius2;
     int npoints;
     MyDesign m;
@@ -12,10 +12,11 @@ public class Star {
         this.radius1 = radius1;
         this.radius2 = radius2;
         this.npoints = npoints;
-        drawStar();
+        render();
     }
     
-    public void drawStar() {
+    @Override
+    public void render() {
         float angle = m.TWO_PI / npoints;
         float halfAngle = angle / (float)2.0;
         m.colorMode(m.HSB);
@@ -32,6 +33,13 @@ public class Star {
         }
         m.endShape();      
     }
+
+    @Override
+    public void update() {
+        
+    }
+
+    
 
     
 }

@@ -21,12 +21,21 @@ public class MyDesign extends Visual{
     float angle;
     float acc;
     float vel;
+    float cx;
+    float cy;
+    int scl = 20;
+    int cols, rows;
+    int w, h;
+    float[][] landscape;
+    float move;
 
 
+    int alpha;
+    int delta;
 
     public void settings()
 	{
-		// size(512, 512);
+		// size(600, 600, P3D);
         fullScreen(P3D, 1);
 	}
 
@@ -78,7 +87,6 @@ public class MyDesign extends Visual{
                 // break;
             }
             case 1 : {
-                // textSize(50);
                 fill(255);
                 text("C19313793", width/2, height -20);
                 noFill();
@@ -95,6 +103,57 @@ public class MyDesign extends Visual{
             }
             case 2: {
                 //terrain and circle
+                float numLines = 10;
+                float w = width / numLines;
+                float colorGap = 255 / (float) numLines;
+                float border = width * 0.05f;
+                colorMode(HSB);
+                strokeWeight(3);
+                smooth();
+                for(int i = 0; i < numLines; i++) {
+                    stroke((i * colorGap) % 255 , 255, alpha);
+                    line(border, cy + cy/2, width, border * i);
+                    twinkle(); 
+                        
+                }
+                break;
+
+            }
+            case 3 :{
+                stroke(255);
+                noFill();
+                calculateAverageAmplitude();
+                float average = getAmplitude();
+                float cc = map(average, 0, 1, 0, 255);
+                translate(width/2, height/2);
+                rotateX(PI/3);
+                translate(-width/2, -height/2);
+                fill(cc, 255, 255);
+                for(int y = 0; y< rows-1; y++) {
+                    beginShape(TRIANGLE_STRIP);
+
+                    for(int x = 0; x < cols; x++) {
+                        //draw the vertices
+                        vertex(x*scl, y*scl,landscape[x][y]);
+                        vertex(x*scl, (y+1)*scl, landscape[x][y+1]);
+                    }
+                    endShape();
+                }
+
+                //adjust speed of the wave
+                move+= lerpedAverage * (mouseX *0.0001f);
+                float y_offset = move;
+                for(int y = 0; y< rows; y++) {
+                    float x_offset =0;
+                    for(int x = 0; x < cols; x++) {
+                        //last two parameters alter the pull amount of the vertice
+                        landscape[x][y] = map(noise(x_offset, y_offset), 0, 1, -lerpedAverage*1000, lerpedAverage*1000);
+                        //change the offsets to mess around with the visual
+                        x_offset += 0.2; 
+                    }
+                    y_offset += 0.02;
+                }
+
 
             }
             
@@ -114,12 +173,30 @@ public class MyDesign extends Visual{
         acc =0;
         vel = 0;
         angle = 0;
+        alpha = 1;
+        delta =1;
+        cx = width / 2;
+        cy = height / 2;  
+        w = width;
+        h = height;
+        cols = w/scl;
+        rows = h/scl;
+        landscape = new float[cols][rows];
+        
         
         for(int i = 0; i < rainfall.length; i++) {
             rainfall[i] = new Drop(this, this.width, this.height);
         }
         lerpedBuffer = new float[width];
 	}
+
+    void twinkle() {
+        //fade in and out
+       if (alpha == 0 || alpha == 255) {
+          delta= -delta;
+        }
+        alpha += delta;
+    } 
 
   
 }
