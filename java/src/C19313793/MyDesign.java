@@ -28,6 +28,7 @@ public class MyDesign extends Visual{
     int w, h;
     float[][] landscape;
     float move;
+    RectangleFun rectFun;
 
 
     int alpha;
@@ -153,6 +154,11 @@ public class MyDesign extends Visual{
                     }
                     y_offset += 0.02;
                 }
+
+                stroke(cc, 255, 255);        
+                strokeWeight(2);
+                noFill();
+                rectMode(CENTER);
 
 
             }
