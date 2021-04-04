@@ -102,6 +102,7 @@ public class MyDesign extends Visual{
 
             //strobe lights
             case 2: {
+
                 StrobeLights lights = new StrobeLights(this, 10, height, width, width * border);
                 lights.render();
                 break;
@@ -109,44 +110,9 @@ public class MyDesign extends Visual{
 
             // terrain visual
             case 3 :{
-                stroke(255);
-                noFill();
-                float average = getAmplitude();
-                float cc = map(average, 0, 1, 0, 255);
-                translate(width/2, height/2);
-                rotateX(PI/3);
-                translate(-width/2, -height/2);
-                fill(cc, 255, 255);
-                for(int y = 0; y< rows-1; y++) {
-                    beginShape(TRIANGLE_STRIP);
-
-                    for(int x = 0; x < cols; x++) {
-                        //draw the vertices
-                        vertex(x*scl, y*scl,landscape[x][y]);
-                        vertex(x*scl, (y+1)*scl, landscape[x][y+1]);
-                    }
-                    endShape();
-                }
-
-                //adjust speed of the wave
-                move+= lerpedAverage * (mouseX *0.0001f);
-                float y_offset = move;
-                for(int y = 0; y< rows; y++) {
-                    float x_offset =0;
-                    for(int x = 0; x < cols; x++) {
-                        //last two parameters alter the pull amount of the vertice
-                        landscape[x][y] = map(noise(x_offset, y_offset), 0, 1, -lerpedAverage*1000, lerpedAverage*1000);
-                        //change the offsets to mess around with the visual
-                        x_offset += 0.2; 
-                    }
-                    y_offset += 0.02;
-                }
-
-                stroke(cc, 255, 255);        
-                strokeWeight(2);
-                noFill();
-                rectMode(CENTER);
-                
+                Flow flow = new Flow(this, w, h, 20);
+                flow.render();
+                flow.update();
                 break;
 
             }
@@ -178,15 +144,11 @@ public class MyDesign extends Visual{
         loadAudio("skyfire.mp3");
         ap = getAudioPlayer();
         rectMode(CENTER);
-        acc =0;
-        vel = 0;
+        acc =0; vel = 0;
         angle = 0;
-        alpha = 1;
-        delta =1;
-        w = width;
-        h = height;
-        cols = w/scl;
-        rows = h/scl;
+        alpha = 1; delta = 1;
+        w = width; h = height;
+        cols = w/scl; rows = h/scl;
         landscape = new float[cols][rows];
         border = 0.05f;
         
