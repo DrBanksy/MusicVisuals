@@ -29,6 +29,7 @@ public class MyDesign extends Visual{
     float[][] landscape;
     float move;
 
+    
 
     int alpha;
     int delta;
@@ -101,8 +102,11 @@ public class MyDesign extends Visual{
                 circles = new CircleOfCircles(this, 200, 200, lerpedAverage*300);
                 break;
             }
+
+            //strobe lights
             case 2: {
-                //terrain and circle
+                // calculateAverageAmplitude();
+                float smoothedAmp = getSmoothedAmplitude();
                 float numLines = 10;
                 float w = width / numLines;
                 float colorGap = 255 / (float) numLines;
@@ -111,18 +115,22 @@ public class MyDesign extends Visual{
                 strokeWeight(3);
                 smooth();
                 for(int i = 0; i < numLines; i++) {
-                    stroke((i * colorGap) % 255 , 255, alpha);
-                    line(border, cy + cy/2, width, border * i);
+                    println(lerpedAverage);
+                    stroke((i * colorGap) % 255 , 255, alpha - (lerpedAverage * 10));
+                    line(border, cy + cy/2, width * (smoothedAmp * 2.0f), border * i);
+                    line(width - border, cy + cy/2, width * (smoothedAmp * 2.0f), border * i);
                     twinkle(); 
                         
                 }
                 break;
 
             }
+
+            // terrain visual
             case 3 :{
                 stroke(255);
                 noFill();
-                calculateAverageAmplitude();
+                // calculateAverageAmplitude();
                 float average = getAmplitude();
                 float cc = map(average, 0, 1, 0, 255);
                 translate(width/2, height/2);
@@ -163,8 +171,14 @@ public class MyDesign extends Visual{
 
             }
 
+            // cool rectangles
+            // demonstrates polymorphism and inheritance
             case 4 : {
-                stroke(255, 255, 255);
+
+                calculateAverageAmplitude();
+                float average = getAmplitude();
+                float cc = map(average, 0, 1, 0, 255);
+                stroke(cc, 255, 255);
                 noFill();
                 strokeWeight(2);
                 Rect rect = new NestedRect(this, width/2, height/2, 50 + (lerpedAverage * 500));
