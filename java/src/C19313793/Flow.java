@@ -3,7 +3,7 @@ package C19313793;
 import processing.core.PApplet;
 import processing.core.PConstants;
 
-public class Flow  {
+public class Flow implements Shape  {
     int width, height;
     int scl;
     float cc;
