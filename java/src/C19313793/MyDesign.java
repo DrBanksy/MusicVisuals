@@ -158,8 +158,17 @@ public class MyDesign extends Visual{
                 strokeWeight(2);
                 noFill();
                 rectMode(CENTER);
+                
+                break;
 
+            }
 
+            case 4 : {
+                stroke(255, 255, 255);
+                noFill();
+                strokeWeight(2);
+                Rect rect = new NestedRect(this, width/2, height/2, 50 + (lerpedAverage * 500));
+                rect.render();
             }
             
         }
@@ -187,6 +196,8 @@ public class MyDesign extends Visual{
         cols = w/scl;
         rows = h/scl;
         landscape = new float[cols][rows];
+        
+        
         
         
         for(int i = 0; i < rainfall.length; i++) {
