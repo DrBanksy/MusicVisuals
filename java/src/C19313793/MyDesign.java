@@ -18,16 +18,13 @@ public class MyDesign extends Visual{
     CircleOfCircles circles;
     PFont font;
     WelcomeScreen menu;
-    float angle;
-    float acc;
-    float vel;
-    float cx;
-    float cy;
+    float angle, acc, vel;
     int scl = 20;
     int cols, rows;
     int w, h;
     float[][] landscape;
     float move;
+    float border;
 
     
 
@@ -105,25 +102,9 @@ public class MyDesign extends Visual{
 
             //strobe lights
             case 2: {
-                // calculateAverageAmplitude();
-                float smoothedAmp = getSmoothedAmplitude();
-                float numLines = 10;
-                float w = width / numLines;
-                float colorGap = 255 / (float) numLines;
-                float border = width * 0.05f;
-                colorMode(HSB);
-                strokeWeight(3);
-                smooth();
-                for(int i = 0; i < numLines; i++) {
-                    println(lerpedAverage);
-                    stroke((i * colorGap) % 255 , 255, alpha - (lerpedAverage * 10));
-                    line(border, cy + cy/2, width * (smoothedAmp * 2.0f), border * i);
-                    line(width - border, cy + cy/2, width * (smoothedAmp * 2.0f), border * i);
-                    twinkle(); 
-                        
-                }
+                StrobeLights lights = new StrobeLights(this, 10, height, width, width * border);
+                lights.render();
                 break;
-
             }
 
             // terrain visual
@@ -203,15 +184,12 @@ public class MyDesign extends Visual{
         angle = 0;
         alpha = 1;
         delta =1;
-        cx = width / 2;
-        cy = height / 2;  
         w = width;
         h = height;
         cols = w/scl;
         rows = h/scl;
         landscape = new float[cols][rows];
-        
-        
+        border = 0.05f;
         
         
         for(int i = 0; i < rainfall.length; i++) {
