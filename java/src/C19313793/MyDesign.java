@@ -111,7 +111,6 @@ public class MyDesign extends Visual{
             case 3 :{
                 stroke(255);
                 noFill();
-                // calculateAverageAmplitude();
                 float average = getAmplitude();
                 float cc = map(average, 0, 1, 0, 255);
                 translate(width/2, height/2);
