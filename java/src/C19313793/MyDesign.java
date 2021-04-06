@@ -107,7 +107,7 @@ public class MyDesign extends Visual{
 
             }
 
-            // cool rectangles
+            // cool rectangles and some crazy waveform
             // demonstrates polymorphism and inheritance
             case 4 : {
                 calculateAverageAmplitude();
