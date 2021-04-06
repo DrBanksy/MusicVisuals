@@ -3,12 +3,14 @@ import ddf.minim.AudioBuffer;
 import ddf.minim.AudioInput;
 import ddf.minim.AudioPlayer;
 import ddf.minim.Minim;
+import ddf.minim.analysis.FFT;
 import ie.tudublin.*;
 import processing.core.PFont;
 
 public class MyDesign extends Visual{
     
     AudioPlayer ap;
+    FFT fft;
     AudioBuffer ab;
     private int which = 0;
     Drop d;
@@ -108,9 +110,17 @@ public class MyDesign extends Visual{
             // cool rectangles
             // demonstrates polymorphism and inheritance
             case 4 : {
-                Rect rect = new NestedRect(this, width/2, height/2, 50 + (lerpedAverage * 500));
-                rect.update();
+                calculateAverageAmplitude();
+                ab = getAudioBuffer();
+                float average = getAmplitude();
+                float cc = map(average, 0, 1, 0, 255);
+                stroke(cc, 255, 255);
+                noFill();
+                strokeWeight(2);
+                Rect rect = new NestedRect(this, width/2, height/4, 50 + (lerpedAverage * 500));
                 rect.render();
+                MusicBars m = new MusicBars(this);
+                m.render();
             }
             
         }
