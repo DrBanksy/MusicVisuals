@@ -64,33 +64,21 @@ public class MyDesign extends Visual{
                 WelcomeScreen welcome = new WelcomeScreen(this);
                 acc = (float)0.01;
                 acc = map((float)mouseX, (float)0, (float)width, (float)-0.01,(float) 0.01);
-                noStroke();
-                fill(240, 99, 164);
-                rectMode(CENTER);
                 pushMatrix();
                 translate(width/2, height/2 - 50);
                 rotate(angle);
-                // rect(0, 0, 130, 60);
                 Star star = new Star(this, 0, 0, 30, 70, 5);
                 angle += vel;
                 vel += acc;
                 popMatrix();
                 break;
-
-
-                // translate(width/2, height/2);
-                // rotate(radians(angle));
-                // rect(0, -400, 200, 200);
-                // angle++;
-                // break;
             }
+            // rainfall and circles
             case 1 : {
                 fill(255);
                 text("C19313793", width/2, height -20);
                 noFill();
                 stroke(120);
-                // float wave = sin(radians(frameCount));
-                // ellipse(width/2 + wave * (lerpedAverage * 500), height/2, 50 + (lerpedAverage * 500), 50 + (lerpedAverage * 500));
                 for(int i = 0; i < rainfall.length; i++) {
                     rainfall[i].update();
                     rainfall[i].render();
@@ -120,14 +108,8 @@ public class MyDesign extends Visual{
             // cool rectangles
             // demonstrates polymorphism and inheritance
             case 4 : {
-
-                calculateAverageAmplitude();
-                float average = getAmplitude();
-                float cc = map(average, 0, 1, 0, 255);
-                stroke(cc, 255, 255);
-                noFill();
-                strokeWeight(2);
                 Rect rect = new NestedRect(this, width/2, height/2, 50 + (lerpedAverage * 500));
+                rect.update();
                 rect.render();
             }
             
