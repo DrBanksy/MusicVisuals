@@ -112,11 +112,7 @@ public class MyDesign extends Visual{
             case 4 : {
                 calculateAverageAmplitude();
                 ab = getAudioBuffer();
-                float average = getAmplitude();
-                float cc = map(average, 0, 1, 0, 255);
-                stroke(cc, 255, 255);
-                noFill();
-                strokeWeight(2);
+
                 Rect rect = new NestedRect(this, width/2, height/4, 50 + (lerpedAverage * 500));
                 rect.render();
                 MusicBars m = new MusicBars(this);

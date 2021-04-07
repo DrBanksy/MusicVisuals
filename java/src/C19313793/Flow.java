@@ -54,11 +54,6 @@ public class Flow implements Shape  {
             }
             y_offset += 0.09;
         }
-
-        m.stroke(cc, 255, 255);        
-        m.strokeWeight(2);
-        m.noFill();
-        m.rectMode(PConstants.CENTER);
     }
 
     
