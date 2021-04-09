@@ -12,7 +12,6 @@ public class Star implements Shape {
         this.radius1 = radius1;
         this.radius2 = radius2;
         this.npoints = npoints;
-        render();
     }
     
     @Override

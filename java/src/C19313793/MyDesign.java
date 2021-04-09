@@ -54,27 +54,34 @@ public class MyDesign extends Visual{
         }
     }
 
+    WelcomeScreen welcome;
+    Star star;
+    MusicBars m;
+    Rect rect;
+    Flow flow;
+    StrobeLights lights;
+
     public void draw() {
         background(0);
-        float halfHeight = height / 2;
         calculateAverageAmplitude();
         float c = map(getAmplitude(), 0, 1, 0, 255);
         lerpedAverage = lerp(lerpedAverage, getAmplitude() , 0.1f);
     
         switch(which) {
             case 0 : {
-                WelcomeScreen welcome = new WelcomeScreen(this);
+                welcome.setup();
                 acc = (float)0.01;
                 acc = map((float)mouseX, (float)0, (float)width, (float)-0.01,(float) 0.01);
                 pushMatrix();
                 translate(width/2, height/2 - 50);
                 rotate(angle);
-                Star star = new Star(this, 0, 0, 30, 70, 5);
+                star.render();
                 angle += vel;
                 vel += acc;
                 popMatrix();
                 break;
             }
+
             // rainfall and circles
             case 1 : {
                 fill(255);
@@ -100,7 +107,6 @@ public class MyDesign extends Visual{
 
             // terrain visual
             case 3 :{
-                Flow flow = new Flow(this, w, h, 20);
                 flow.render();
                 flow.update();
                 break;
@@ -112,10 +118,8 @@ public class MyDesign extends Visual{
             case 4 : {
                 calculateAverageAmplitude();
                 ab = getAudioBuffer();
-
                 Rect rect = new NestedRect(this, width/2, height/4, 50 + (lerpedAverage * 500));
                 rect.render();
-                MusicBars m = new MusicBars(this);
                 m.render();
             }
             
@@ -139,8 +143,10 @@ public class MyDesign extends Visual{
         cols = w/scl; rows = h/scl;
         landscape = new float[cols][rows];
         border = 0.05f;
-        
-        
+        welcome = new WelcomeScreen(this);
+        star = new Star(this, 0, 0, 30, 70, 5);
+        m = new MusicBars(this);
+        flow = new Flow(this, w, h, 20);
         for(int i = 0; i < rainfall.length; i++) {
             rainfall[i] = new Drop(this, this.width, this.height);
         }

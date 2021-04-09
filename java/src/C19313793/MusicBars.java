@@ -7,7 +7,6 @@ public class MusicBars {
 
     MusicBars(MyDesign m) {
         this.m = m;
-        render();
     }
 
     public void render() {

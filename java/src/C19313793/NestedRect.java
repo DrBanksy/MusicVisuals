@@ -1,5 +1,7 @@
 package C19313793;
 
+// 50 + (lerpedAverage * 500)
+
 public class NestedRect extends Rect {
 
     public NestedRect(MyDesign m, float x, float y, float size) {
