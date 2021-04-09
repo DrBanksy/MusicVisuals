@@ -28,8 +28,6 @@ public class MyDesign extends Visual{
     float move;
     float border;
 
-    
-
     int alpha;
     int delta;
 
@@ -121,6 +119,12 @@ public class MyDesign extends Visual{
                 Rect rect = new NestedRect(this, width/2, height/4, 50 + (lerpedAverage * 500));
                 rect.render();
                 m.render();
+                break;
+            }
+
+            case 5: {
+                HecticLines();
+                break;
             }
             
         }
@@ -153,13 +157,33 @@ public class MyDesign extends Visual{
         lerpedBuffer = new float[width];
 	}
 
-    void twinkle() {
+    public void twinkle() {
         //fade in and out
        if (alpha == 0 || alpha == 255) {
           delta= -delta;
         }
         alpha += delta;
     } 
+
+    public void HecticLines() {
+        float c = map(getAmplitude(), 0, 1, 0, 255);
+        float r = 1f;
+        int numPoints = 10;
+        float thetaInc = TWO_PI / (float) numPoints;
+        strokeWeight(2);                
+        float lastX = width / 2, lastY = height / 2;
+        for(int i = 0 ; i < 1000 ; i ++)
+        {
+            stroke(c, 255, 255, 100);
+            float theta = i * (thetaInc + lerpedAverage * 0.01f);
+            float x = width / 2 + sin(theta) * r;
+            float y = height / 2 - cos(theta) * r;
+            r += 0.5f + (lerpedAverage*0.01f);
+            line(lastX, lastY, x, y);
+            // lastX = x;
+            lastY = y;
+        }
+    }
 
   
 }
