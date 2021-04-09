@@ -33,7 +33,7 @@ public class MyDesign extends Visual{
 
     public void settings()
 	{
-		size(600, 600, P3D);
+		// size(600, 600, P3D);
         fullScreen(P3D, 1);
 	}
 
