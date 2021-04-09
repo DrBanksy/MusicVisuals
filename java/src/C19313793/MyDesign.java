@@ -28,8 +28,6 @@ public class MyDesign extends Visual{
     float move;
     float border;
 
-    
-
     int alpha;
     int delta;
 
@@ -121,6 +119,10 @@ public class MyDesign extends Visual{
                 Rect rect = new NestedRect(this, width/2, height/4, 50 + (lerpedAverage * 500));
                 rect.render();
                 m.render();
+            }
+
+            case 5: {
+                
             }
             
         }
