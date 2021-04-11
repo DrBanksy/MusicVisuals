@@ -19,7 +19,6 @@ public class MyDesign extends Visual{
     float[] lerpedBuffer;
     CircleOfCircles circles;
     PFont font;
-    WelcomeScreen menu;
     float angle, acc, vel;
     int scl = 20;
     int cols, rows;
@@ -58,10 +57,12 @@ public class MyDesign extends Visual{
     Rect rect;
     Flow flow;
     StrobeLights lights;
+    Rect rect1;
 
     public void draw() {
         background(0);
         calculateAverageAmplitude();
+        ab = getAudioBuffer();
         float c = map(getAmplitude(), 0, 1, 0, 255);
         lerpedAverage = lerp(lerpedAverage, getAmplitude() , 0.1f);
     
@@ -114,9 +115,6 @@ public class MyDesign extends Visual{
             // cool rectangles and some crazy waveform
             // demonstrates polymorphism and inheritance
             case 4 : {
-                calculateAverageAmplitude();
-                ab = getAudioBuffer();
-                Rect rect = new NestedRect(this, width/2, height/4, 50 + (lerpedAverage * 500));
                 rect.render();
                 m.render();
                 break;
@@ -125,6 +123,10 @@ public class MyDesign extends Visual{
             case 5: {
                 HecticLines();
                 break;
+            }
+
+            case 6: {
+
             }
             
         }
@@ -139,6 +141,7 @@ public class MyDesign extends Visual{
         startMinim();
         loadAudio("skyfire.mp3");
         ap = getAudioPlayer();
+        ap.play();
         rectMode(CENTER);
         acc =0; vel = 0;
         angle = 0;
@@ -151,13 +154,14 @@ public class MyDesign extends Visual{
         star = new Star(this, 0, 0, 30, 70, 5);
         m = new MusicBars(this);
         flow = new Flow(this, w, h, 20);
+        rect = new NestedRect(this, width/2, height/4);
         for(int i = 0; i < rainfall.length; i++) {
             rainfall[i] = new Drop(this, this.width, this.height);
         }
         lerpedBuffer = new float[width];
 	}
 
-    public void twinkle() {
+    public void fade() {
         //fade in and out
        if (alpha == 0 || alpha == 255) {
           delta= -delta;

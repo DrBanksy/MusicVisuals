@@ -26,7 +26,7 @@ public class StrobeLights implements Shape {
             m.stroke((i * colorGap) % 255 , 255, m.alpha - (m.lerpedAverage * 10));
             m.line(border, cy + cy/2, m.width * (smoothedAmp * 2.0f), border * i);
             m.line(m.width - border, cy + cy/2, m.width * (smoothedAmp * 2.0f), border * i);
-            m.twinkle(); 
+            m.fade(); 
                 
         }
     }

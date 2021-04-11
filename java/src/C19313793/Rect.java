@@ -3,13 +3,12 @@ package C19313793;
 import processing.core.PApplet;
 
 public class Rect implements Shape {
-    float x, y, size;
+    float x, y;
     MyDesign m;
 
-    public Rect(MyDesign m, float x, float y, float size) {
+    public Rect(MyDesign m, float x, float y) {
         this.x = x;
         this.y = y;
-        this.size = size;
         this.m = m;
     }
 
@@ -22,7 +21,7 @@ public class Rect implements Shape {
         m.stroke(cc, 255, 255);
         m.noFill();
         m.strokeWeight(2);
-        m.rect(x, y, size * 4, size);
+        m.rect(x, y, (50 + (m.lerpedAverage * 500)) * 4, (50 + (m.lerpedAverage * 500)));
     }
 
     @Override
