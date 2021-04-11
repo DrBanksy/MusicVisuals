@@ -18,7 +18,6 @@ public class MyDesign extends Visual{
     float lerpedAverage = 0;
     float[] lerpedBuffer;
     PFont font;
-    float angle, acc, vel;
     int scl = 20;
     int cols, rows;
     int w, h;
@@ -51,6 +50,7 @@ public class MyDesign extends Visual{
         }
     }
 
+    // visuals
     WelcomeScreen welcome;
     Star star;
     MusicBars m;
@@ -69,6 +69,8 @@ public class MyDesign extends Visual{
         lerpedAverage = lerp(lerpedAverage, getAmplitude() , 0.1f);
     
         switch(which) {
+
+            // main screen
             case 0 : {
                 welcome.setup();
                 star.render();
@@ -91,7 +93,7 @@ public class MyDesign extends Visual{
                 break;
             }
 
-            //strobe lights
+            // strobe lights
             case 2: {
                 lights.render();
                 break;
@@ -127,6 +129,7 @@ public class MyDesign extends Visual{
 
     public void setup() 
 	{
+        // setting up audioPlayer, audioBuffer and loading song
         colorMode(HSB);
         setFrameSize(512);
         font = createFont("customFont.ttf", 24);
@@ -136,13 +139,15 @@ public class MyDesign extends Visual{
         ap = getAudioPlayer();
         ap.play();
         rectMode(CENTER);
-        acc =0; vel = 0;
-        angle = 0;
+
+        // properties
+        border = 0.05f;
         alpha = 1; delta = 1;
         w = width; h = height;
         cols = w/scl; rows = h/scl;
+
+        // visuals
         landscape = new float[cols][rows];
-        border = 0.05f;
         welcome = new WelcomeScreen(this);
         star = new Star(this, 0, 0, 30, 70, 5);
         m = new MusicBars(this);
@@ -156,14 +161,16 @@ public class MyDesign extends Visual{
         lerpedBuffer = new float[width];
 	}
 
+    // fade in and out by altering the alpha
     public void fade() {
-        //fade in and out
        if (alpha == 0 || alpha == 255) {
           delta= -delta;
         }
         alpha += delta;
     } 
 
+    // this function draws a cool visual using 
+    // the line function from the PApplet library
     public void HecticLines() {
         float c = map(getAmplitude(), 0, 1, 0, 255);
         float r = 1f;
@@ -179,7 +186,6 @@ public class MyDesign extends Visual{
             float y = height / 2 - cos(theta) * r;
             r += 0.5f + (lerpedAverage*0.01f);
             line(lastX, lastY, x, y);
-            // lastX = x;
             lastY = y;
         }
     }
