@@ -17,7 +17,6 @@ public class MyDesign extends Visual{
     Drop[] rainfall = new Drop[250];
     float lerpedAverage = 0;
     float[] lerpedBuffer;
-    CircleOfCircles circles;
     PFont font;
     float angle, acc, vel;
     int scl = 20;
@@ -59,6 +58,7 @@ public class MyDesign extends Visual{
     Flow flow;
     StrobeLights lights;
     Rect rect1;
+    CircleOfCircles circles;
 
     public void draw() {
         background(0);
@@ -71,15 +71,8 @@ public class MyDesign extends Visual{
         switch(which) {
             case 0 : {
                 welcome.setup();
-                acc = (float)0.01;
-                acc = map((float)mouseX, (float)0, (float)width, (float)-0.01,(float) 0.01);
-                pushMatrix();
-                translate(width/2, height/2 - 50);
-                rotate(angle);
                 star.render();
-                angle += vel;
-                vel += acc;
-                popMatrix();
+                star.update();
                 break;
             }
 
@@ -94,13 +87,12 @@ public class MyDesign extends Visual{
                     rainfall[i].render();
                 }
                 stroke(c, 255, 255); 
-                circles = new CircleOfCircles(this, 200, 200, lerpedAverage*300);
+                circles.render();           
                 break;
             }
 
             //strobe lights
             case 2: {
-
                 lights.render();
                 break;
             }
@@ -157,6 +149,7 @@ public class MyDesign extends Visual{
         flow = new Flow(this, w, h, 20);
         rect = new NestedRect(this, width/2, height/4);
         lights = new StrobeLights(this, 10, height, width, width * border);
+        circles = new CircleOfCircles(this, 200, 200, lerpedAverage*300);  
         for(int i = 0; i < rainfall.length; i++) {
             rainfall[i] = new Drop(this, this.width, this.height);
         }

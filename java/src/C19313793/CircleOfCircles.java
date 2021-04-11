@@ -17,16 +17,16 @@ public class CircleOfCircles implements Shape {
         this.y = y;
         this.x = x;
         this.depth = depth;
-        render();
     }
 
 
     @Override
     public void render(){
+        depth = m.lerpedAverage * 300;
         m.translate(m.width/2, m.height/2);
         for(float r = 0 ; r < m.mouseX; r+=depth) {
             float c = 2*m.PI*r; 
-            float aSegment = m.floor(c/depth);
+            float aSegment = PApplet.floor(c/depth);
             for(float i = 0; i < 360; i+=360/aSegment) {
                 m.pushMatrix();
                 m.rotate(PApplet.radians(i));
