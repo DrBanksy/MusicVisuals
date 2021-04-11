@@ -6,7 +6,7 @@ public class StrobeLights implements Shape {
     float border;
     MyDesign m;
     float colorGap;
-    float smoothedAmp;
+    
 
     public StrobeLights(MyDesign m, float numLines, float height, float width, float border) {
         this.m = m;
@@ -14,7 +14,6 @@ public class StrobeLights implements Shape {
         this.cx = width/2;
         this.cy = height/2;
         this.border = border;
-        this.smoothedAmp = m.getSmoothedAmplitude();
     }
 
     @Override
@@ -24,8 +23,8 @@ public class StrobeLights implements Shape {
          colorGap = 255 / (float) numLines;
          for(int i = 0; i < numLines; i++) {
             m.stroke((i * colorGap) % 255 , 255, m.alpha - (m.lerpedAverage * 10));
-            m.line(border, cy + cy/2, m.width * (smoothedAmp * 2.0f), border * i);
-            m.line(m.width - border, cy + cy/2, m.width * (smoothedAmp * 2.0f), border * i);
+            m.line(border, cy + cy/2, m.width * (m.smoothedAmp * 2.0f), border * i);
+            m.line(m.width - border, cy + cy/2, m.width * (m.smoothedAmp * 2.0f), border * i);
             m.fade(); 
                 
         }

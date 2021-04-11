@@ -26,6 +26,7 @@ public class MyDesign extends Visual{
     float[][] landscape;
     float move;
     float border;
+    float smoothedAmp;
 
     int alpha;
     int delta;
@@ -63,6 +64,7 @@ public class MyDesign extends Visual{
         background(0);
         calculateAverageAmplitude();
         ab = getAudioBuffer();
+        smoothedAmp = getSmoothedAmplitude();
         float c = map(getAmplitude(), 0, 1, 0, 255);
         lerpedAverage = lerp(lerpedAverage, getAmplitude() , 0.1f);
     
@@ -99,7 +101,6 @@ public class MyDesign extends Visual{
             //strobe lights
             case 2: {
 
-                StrobeLights lights = new StrobeLights(this, 10, height, width, width * border);
                 lights.render();
                 break;
             }
@@ -155,6 +156,7 @@ public class MyDesign extends Visual{
         m = new MusicBars(this);
         flow = new Flow(this, w, h, 20);
         rect = new NestedRect(this, width/2, height/4);
+        lights = new StrobeLights(this, 10, height, width, width * border);
         for(int i = 0; i < rainfall.length; i++) {
             rainfall[i] = new Drop(this, this.width, this.height);
         }
