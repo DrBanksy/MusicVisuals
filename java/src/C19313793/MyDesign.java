@@ -129,7 +129,12 @@ public class MyDesign extends Visual{
 
     public void setup() 
 	{
-        // setting up audioPlayer, audioBuffer and loading song
+        /*
+        setting up:
+             - AudioPlayer and AudioBuffer
+             - Custom Font
+             - Loading Song
+        */
         colorMode(HSB);
         setFrameSize(512);
         font = createFont("customFont.ttf", 24);
