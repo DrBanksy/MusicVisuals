@@ -123,7 +123,10 @@ public abstract class Visual extends PApplet
 		return ai;
 	}
 
-
+	public FFT getFFT() {
+		return fft;
+	}
+	
 	public AudioBuffer getAudioBuffer() {
 		return ab;
 	}

@@ -18,7 +18,6 @@ public class Flow implements Shape  {
     }
 
     public void render() {
-        m.stroke(255);
         m.noFill();
         float average = m.getAmplitude();
         cc = PApplet.map(average, 0, 1, 0, 255);
@@ -26,7 +25,9 @@ public class Flow implements Shape  {
         m.rotateX(PConstants.PI/3);
         m.translate(-m.width/2, -m.height/2);
         m.fill(cc, 255, 255);
+        m.stroke(190, 255, 255);
         for(int y = 0; y< m.rows-1; y++) {
+
             m.beginShape(PConstants.TRIANGLE_STRIP);
 
             for(int x = 0; x < m.cols; x++) {

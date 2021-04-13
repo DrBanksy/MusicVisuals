@@ -37,7 +37,7 @@ public class MyDesign extends Visual{
 
     public void keyPressed() {
         
-        if (keyCode >= '0' && keyCode <= '5') {
+        if (keyCode >= '0' && keyCode <= '6') {
             which = keyCode - '0';
         }
         if (keyCode == ' ') {
@@ -64,6 +64,15 @@ public class MyDesign extends Visual{
         background(0);
         calculateAverageAmplitude();
         ab = getAudioBuffer();
+        try
+        {
+            calculateFFT(); 
+        }
+        catch(VisualException e)
+        {
+            e.printStackTrace();
+        }
+        calculateFrequencyBands();
         smoothedAmp = getSmoothedAmplitude();
         float c = map(getAmplitude(), 0, 1, 0, 255);
         lerpedAverage = lerp(lerpedAverage, getAmplitude() , 0.1f);
@@ -121,9 +130,30 @@ public class MyDesign extends Visual{
             }
 
             case 6: {
+  
+                stroke(255);
+                    
+                fft.window(FFT.HAMMING);
+                fft.forward(ab);
+                float w = width / (float) getBands().length;
+                pushMatrix();
+                translate(width/2, height/2);
+                rotateX(PI/3);
+                translate(-width/2, -height/2);
 
+                for(int i = 0 ; i < getBands().length ; i ++)
+                {
+                    float colorGap = 255 / (float) 10;
+                    fill((i * colorGap) % 255 , 255, alpha - (lerpedAverage * 5));
+                    fade();
+                    float x = map(i, -1, getBands().length, 0, width);
+                    noStroke();
+                    rect(x, height, w*0.5f, getSmoothedBands()[i]*5);
+                    println(x);
+                }    
+                popMatrix();
             }
-            
+            break;
         }
     }
 
@@ -140,10 +170,11 @@ public class MyDesign extends Visual{
         font = createFont("customFont.ttf", 24);
         textFont(font);
         startMinim();
-        loadAudio("skyfire.mp3");
+        loadAudio("zyzzbrah.mp3");
         ap = getAudioPlayer();
         ap.play();
         rectMode(CENTER);
+        fft = getFFT();
 
         // properties
         border = 0.05f;
