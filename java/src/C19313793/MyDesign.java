@@ -59,6 +59,7 @@ public class MyDesign extends Visual{
     StrobeLights lights;
     Rect rect1;
     CircleOfCircles circles;
+    WaveForm wave;
 
     public void draw() {
         background(0);
@@ -124,36 +125,17 @@ public class MyDesign extends Visual{
                 break;
             }
 
+            // cool visual,
             case 5: {
                 HecticLines();
                 break;
             }
 
+            // dimensional Frequency bands
             case 6: {
-  
-                stroke(255);
-                    
-                fft.window(FFT.HAMMING);
-                fft.forward(ab);
-                float w = width / (float) getBands().length;
-                pushMatrix();
-                translate(width/2, height/2);
-                rotateX(PI/3);
-                translate(-width/2, -height/2);
-
-                for(int i = 0 ; i < getBands().length ; i ++)
-                {
-                    float colorGap = 255 / (float) 10;
-                    fill((i * colorGap) % 255 , 255, alpha - (lerpedAverage * 5));
-                    fade();
-                    float x = map(i, -1, getBands().length, 0, width);
-                    noStroke();
-                    rect(x, height, w*0.5f, getSmoothedBands()[i]*5);
-                    println(x);
-                }    
-                popMatrix();
+                wave.render();
+                break;
             }
-            break;
         }
     }
 
@@ -191,6 +173,7 @@ public class MyDesign extends Visual{
         rect = new NestedRect(this, width/2, height/4);
         lights = new StrobeLights(this, 10, height, width, width * border);
         circles = new CircleOfCircles(this, 200, 200, lerpedAverage*300);  
+        wave = new WaveForm(height, width, this);
         for(int i = 0; i < rainfall.length; i++) {
             rainfall[i] = new Drop(this, this.width, this.height);
         }
