@@ -152,7 +152,7 @@ public class MyDesign extends Visual{
         font = createFont("customFont.ttf", 24);
         textFont(font);
         startMinim();
-        loadAudio("zyzzbrah.mp3");
+        loadAudio("BrokenMinds.mp3");
         ap = getAudioPlayer();
         ap.play();
         rectMode(CENTER);
