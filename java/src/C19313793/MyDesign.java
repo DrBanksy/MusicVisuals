@@ -1,4 +1,6 @@
 package C19313793;
+import java.util.Scanner;
+
 import ddf.minim.AudioBuffer;
 import ddf.minim.AudioInput;
 import ddf.minim.AudioPlayer;
@@ -147,12 +149,13 @@ public class MyDesign extends Visual{
              - Custom Font
              - Loading Song
         */
+
         colorMode(HSB);
         setFrameSize(512);
         font = createFont("customFont.ttf", 24);
         textFont(font);
         startMinim();
-        loadAudio("BrokenMinds.mp3");
+        loadAudio("retro.mp3");
         ap = getAudioPlayer();
         ap.play();
         rectMode(CENTER);
