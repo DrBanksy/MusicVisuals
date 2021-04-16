@@ -22,6 +22,8 @@ The song I chose for this assignment is:
  - space bar to restart the song
  - 0-9 on the keyboard for different visuals
  - Some visuals react with mouse movement
+ 
+## Controls: 
 ![An image](images/controls.jpg)
 
 # How it works
