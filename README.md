@@ -12,9 +12,9 @@ Student Number: C19313793
 - Check out the WaveForm and AudioBandsVisual for examples of how to call the Processing functions from other classes that are not subclasses of PApplet
 
 # Description of the assignment
-For this assignment I created numerous visuals which respond to whatever song is being played. My goal was to create a selection of visuals which would match the tempo of the of the song being played so that the listener would have something to enjoy watching while listening to the song. I experimented with many different song types, some fast paced and some slow paced. However, I discovered that the faster paced music was a much more enjoyable experience for me to create visuals for, and I felt like the pace of the song I selected is reflected in the visuals I created. The song can easily be replaced with a song of your choice. Once it is cloned you can put your own .mp3 or .wav file into the 'data' folder and modify the 'loadAudio' on line 155 in the java file named 'MyDesign'.
+For this assignment I created numerous visuals which respond to whatever song is being played. My goal was to create a selection of visuals which would match the tempo of the  song being played so that the listener would have something enojoyable to watch while listening to the song. I experimented with many different song types, some fast paced and some slow paced. However, I discovered that the faster paced music was a much more enjoyable experience for me to create visuals for, and I felt like the pace of the song I selected is reflected in the visuals I created. The song can easily be replaced with a song of your choice. Once it is cloned you can put your own .mp3 or .wav file into the 'data' folder and modify the 'loadAudio' on line 155 in the java file named 'MyDesign'.
 
-The song I chose for this assignment is:
+The song I chose for this assignment is: https://www.youtube.com/watch?v=ySWvUHSGaBs
 
 
 # Instructions
@@ -27,7 +27,17 @@ The song I chose for this assignment is:
 ![An image](images/controls.jpg)
 
 # How it works
-The 'MyDesign.java' file is the main controller for this program. Upon pressing F5 the setup method will be called once. This method sets up the audio player, audio buffer, custom font and loading the song from the data folder. It also sets the frame size, creates an object for each visual as well as initalizing some important data structures which are used throughout the program(i.e lerped buffer).
+The 'MyDesign.java' file is the main controller for this program. Upon pressing F5 the setup method will be called once. This method sets up the audio player, audio buffer, custom font and loads the song from the data folder. It also sets the frame size, creates an object for each visual as well as initalizing some important data structures which are used throughout the program(i.e lerped buffer). 
+
+Using 0-9 on the keyboard the user can cycle through different visuals which respond to the song being currently played. Below you will find all of the visuals I created as well as a brief description about how I created it.
+
+## WelcomeScreen:
+Visual          |  Code
+:-------------------------:|:-------------------------:
+![](images/welcomeScreen.jpg)  |  ![](images/welcomeScreenCode.jpg)
+### What it does:
+- Sets the background color to black
+- Displays the control keys
 
 # What I am most proud of in the assignment
 
