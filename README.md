@@ -62,14 +62,6 @@ Using 0-9 on the keyboard the user can cycle through different visuals which res
 ![An image](images/rainfallRender.jpg)
  - This method maps the Z(random int) variable and sets the stroke weight. It then draws the Line object using the random x and y co-ordinates
 
-
-
-
-
-
-
-
-
 # What I am most proud of in the assignment
 
 # Markdown Tutorial
