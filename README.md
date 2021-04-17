@@ -29,7 +29,11 @@ The song I chose for this assignment is: https://www.youtube.com/watch?v=ySWvUHS
 # How it works
 The 'MyDesign.java' file is the main controller for this program. Upon pressing F5 the setup method will be called once. This method sets up the audio player, audio buffer, custom font and loads the song from the data folder. It also sets the frame size, creates an object for each visual as well as initalizing some important data structures which are used throughout the program(i.e lerped buffer). 
 
-Using 0-9 on the keyboard the user can cycle through different visuals which respond to the song being currently played. Below you will find all of the visuals I created as well as a brief description about how I created it.
+Using 0-9 on the keyboard the user can cycle through different visuals which respond to the song being currently played. Below you will find some of the visuals I created as well as a brief description about how I created it. Each visual implements the 'Shape' interface which can be seen below.
+
+## Shape Interface class
+![An image](images/interfaceShape.jpg)
+ - Each shape I created implements the 'Shape' interface, therefore each class which implements it must override the update and render method.
 
 ## WelcomeScreen:
 <p float="left">
@@ -40,6 +44,31 @@ Using 0-9 on the keyboard the user can cycle through different visuals which res
 ### What it does:
 - Sets the background color to black
 - Displays the control keys
+
+## Rainfall
+![An image](images/rainfallArray.jpg)
+ - This is an array of objects which is a publicly accessible field.
+
+![An image](images/rainfallFor.jpg)
+ - This for loop loops through each object in the array and calls the update and render method 
+
+### The 'Drop' class
+![An image](images/rainfallSetup.jpg)
+ - This method is called from the constructor. It picks a random x co-ordinate and y co-ordinate. It also sets the speed of the drop and the length of it.
+
+![An image](images/rainfallUpdate.jpg)
+ - This method controls the speed at which the 'Drop' object moves from the top to the bottom of the screen.
+
+![An image](images/rainfallRender.jpg)
+ - This method maps the Z(random int) variable and sets the stroke weight. It then draws the Line object using the random x and y co-ordinates
+
+
+
+
+
+
+
+
 
 # What I am most proud of in the assignment
 
