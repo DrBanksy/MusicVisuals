@@ -23,7 +23,7 @@ The song I chose for this assignment is: https://www.youtube.com/watch?v=ySWvUHS
  - 0-9 on the keyboard for different visuals
  - Some visuals react with mouse movement
  
-## Controls: 
+## Controls
 ![An image](images/controls.jpg)
 
 # How it works
@@ -35,13 +35,13 @@ Using 0-9 on the keyboard the user can cycle through different visuals which res
 ![An image](images/interfaceShape.jpg)
  - Each shape I created implements the 'Shape' interface, therefore each class which implements it must override the update and render method.
 
-## WelcomeScreen:
+## WelcomeScreen
 <p float="left">
   <img src="images/welcomeScreen.jpg" width="500" height="300"/>
   <img src="images/welcomeScreenCode.jpg" width="500" height="300" /> 
 </p>
 
-### What it does:
+### What it does
 - Sets the background color to black
 - Displays the control keys
 
