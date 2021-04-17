@@ -1,6 +1,7 @@
 package C19313793;
 import java.util.Scanner;
 
+
 import ddf.minim.AudioBuffer;
 import ddf.minim.AudioInput;
 import ddf.minim.AudioPlayer;
@@ -39,7 +40,7 @@ public class MyDesign extends Visual{
 
     public void keyPressed() {
         
-        if (keyCode >= '0' && keyCode <= '6') {
+        if (keyCode >= '0' && keyCode <= '7') {
             which = keyCode - '0';
         }
         if (keyCode == ' ') {
@@ -138,6 +139,7 @@ public class MyDesign extends Visual{
                 wave.render();
                 break;
             }
+
         }
     }
 
