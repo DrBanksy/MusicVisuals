@@ -33,8 +33,8 @@ Using 0-9 on the keyboard the user can cycle through different visuals which res
 
 ## WelcomeScreen:
 <p float="left">
-  <img src="images/welcomeScreen.jpg" width="100" />
-  <img src="images/welcomeScreen.jpg" width="100" /> 
+  <img src="images/welcomeScreen.jpg" width="500" />
+  <img src="images/welcomeScreenCode.jpg" width="500" /> 
 </p>
 
 ### What it does:
