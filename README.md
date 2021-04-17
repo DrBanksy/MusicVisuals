@@ -34,7 +34,7 @@ Using 0-9 on the keyboard the user can cycle through different visuals which res
 ## WelcomeScreen:
 Visual          |  Code
 :-------------------------:|:-------------------------:
-![](images/welcomeScreen.jpg)  |  ![](images/welcomeScreenCode.jpg)
+<img src="images/welcomeScreen.jpg" width = "500px"alt=""/> |  <img src="images/welcomeScreen.jpg" width = "500px"alt=""/> 
 ### What it does:
 - Sets the background color to black
 - Displays the control keys
