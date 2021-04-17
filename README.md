@@ -32,9 +32,11 @@ The 'MyDesign.java' file is the main controller for this program. Upon pressing 
 Using 0-9 on the keyboard the user can cycle through different visuals which respond to the song being currently played. Below you will find all of the visuals I created as well as a brief description about how I created it.
 
 ## WelcomeScreen:
-Visual          |  Code
-:-------------------------:|:-------------------------:
-<img src="images/welcomeScreen.jpg" width = "500px"alt=""/> |  <img src="images/welcomeScreen.jpg" width = "500px"alt=""/> 
+<p float="left">
+  <img src="images/welcomeScreen.jpg" width="100" />
+  <img src="images/welcomeScreen.jpg" width="100" /> 
+</p>
+
 ### What it does:
 - Sets the background color to black
 - Displays the control keys
