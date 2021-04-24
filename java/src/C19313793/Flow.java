@@ -50,13 +50,10 @@ public class Flow implements Shape  {
                         -m.lerpedAverage*1000, 
                         m.lerpedAverage*1000
                     );
-                //change the offsets to mess around with the visual
+                //change the offsets to experiment with the shape
                 x_offset += 0.2; 
             }
             y_offset += 0.09;
         }
     }
-
-    
-    
 }
