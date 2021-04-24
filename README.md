@@ -73,6 +73,24 @@ This is the only visual in my program which is created in a functon. I did this 
  - Each iteration in the for loop calculates the x and y co-ordinate by getting the sin and cos of theta. The 'lastY' variable gets changed in each iteration resulting in a cool visual.
 
 # What I am most proud of in the assignment
+![An image](images/flowVisual.jpg)
+I am most proud of the 'Flow' visual. This visual matches the pace of the song so well that I found myself watching the visual till the end of the song. I created this visual by watching a video made by The Coding Train on youtube https://www.youtube.com/watch?v=IKB1hWWedMk. I thought it would be a fun visual to watch respond to the pace of the music and I was right! After watching this video and following along I learnt about 2D arrays, translations, matrices and vertices as well as using the z parameter to construct a 3D visual. I spent a long time messing around with the amount  of 'pull' on the vertices and experimenting with the y offset and x offset variables to control the flow of the visual.
+
+The 'Flow' class has two methods:
+
+![An image](images/flowVisualMain.jpg)
+
+### Render
+![An image](images/flowVisualRender.jpg)
+ - The render method calculates the average amplitude and maps it to between 0 and 255. This is used as the fill colour.
+ - It performs a translation so that everything is drawn relative to the center of the window. It also rotates it on the x-axis by using PI/3 (60 degrees) to give it a 3D appearence.
+ - The z values for the vertices are stored in an array called 'landscape'. The values stored in this array are calculated using the noise function which returns the perlin noise value at the co-ordinates passed in.
+
+### Update
+![An image](images/flowVisualUpdate.jpg)
+ - The flow/speed of the visual is controlled by the move variable which is calculated using the product of the lerpedAverage and the mouseX variable.
+ - Each element in the landscape arary is a value which has been mapped from the value 0-1 to a negative and postive lerpedAverage value. Furthemore, each element in the array is used for the z parameter in the render method for the vertices. It affects the amount of 'pull' on the vertices.
+
 
 # Markdown Tutorial
 
