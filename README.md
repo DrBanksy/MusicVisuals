@@ -46,6 +46,7 @@ Using 0-9 on the keyboard the user can cycle through different visuals which res
 - Displays the control keys
 
 ## Rainfall
+![An image](images/rainfallVisual.jpg)
 ![An image](images/rainfallArray.jpg)
  - This is an array of objects which is a publicly accessible field.
 
@@ -61,6 +62,15 @@ Using 0-9 on the keyboard the user can cycle through different visuals which res
 
 ![An image](images/rainfallRender.jpg)
  - This method maps the Z(random int) variable and sets the stroke weight. It then draws the Line object using the random x and y co-ordinates
+
+This was a fun visual for me to make as I applied concepts learnt from the lectures such as object arrays and how to loop over them. To create this visual I followed a tutorial by The Coding Train on youtube and modified it to create a more beautiful and stimulating visual.
+
+## Circle of Lines
+![An image](images/spinnyThing.jpg)
+This is the only visual in my program which is created in a functon. I did this because I wanted to experiment with calling a function from the same file.
+### Code
+![An image](images/spinnyThingCode.jpg)
+ - Each iteration in the for loop calculates the x and y co-ordinate by getting the sin and cos of theta. The 'lastY' variable gets changed in each iteration resulting in a cool visual.
 
 # What I am most proud of in the assignment
 
