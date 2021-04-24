@@ -67,7 +67,7 @@ This was a fun visual for me to make as I applied concepts learnt from the lectu
 
 ## Circle of Lines
 ![An image](images/spinnyThing.jpg)
-This is the only visual in my program which is created in a functon. I did this because I wanted to experiment with calling a function from the same file.
+This is the only visual in my program which is created in a functon. I did this because I wanted to experiment with calling a function from the same file. Every other visual is put into their own class in order to encourage two highly desirable oop concepts: high cohesion and loose coupling
 ### Code
 ![An image](images/spinnyThingCode.jpg)
  - Each iteration in the for loop calculates the x and y co-ordinate by getting the sin and cos of theta. The 'lastY' variable gets changed in each iteration resulting in a cool visual.
