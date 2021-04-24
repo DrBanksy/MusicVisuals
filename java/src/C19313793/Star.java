@@ -1,6 +1,7 @@
 package C19313793;
 
 import processing.core.PApplet;
+import processing.core.PConstants;
 
 public class Star implements Shape {
     float x, y, radius1, radius2;
@@ -22,23 +23,23 @@ public class Star implements Shape {
     
     @Override
     public void render() {
-        float angle = m.TWO_PI / npoints;
+        float angle = PConstants.TWO_PI / npoints;
         float halfAngle = angle / (float)2.0;
         acc = (float)0.01;
         acc = PApplet.map((float)m.mouseX, (float)0, (float)m.width, (float)-0.01,(float) 0.01);
-        m.colorMode(m.HSB);
+        m.colorMode(PConstants.HSB);
         m.pushMatrix();
         m.translate(m.width/2, m.height/2 - 50);
         m.rotate(angle1);
         m.beginShape();
-        for(float a = 0; a < m.TWO_PI ; a += angle) {
+        for(float a = 0; a < PConstants.TWO_PI ; a += angle) {
             m.stroke(255);
             m.fill(255, 255, 255);
-            float sx = x + m.cos(a) * radius2;
-            float sy = y + m.sin(a) * radius2;
+            float sx = x + PApplet.cos(a) * radius2;
+            float sy = y + PApplet.sin(a) * radius2;
             m.vertex(sx, sy);
-            sx = x + m.cos(a+halfAngle) * radius1;
-            sy = y + m.sin(a+halfAngle) * radius1;
+            sx = x + PApplet.cos(a+halfAngle) * radius1;
+            sy = y + PApplet.sin(a+halfAngle) * radius1;
             m.vertex(sx, sy);
         }
         m.endShape();      
