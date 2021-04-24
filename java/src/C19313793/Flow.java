@@ -27,19 +27,13 @@ public class Flow implements Shape  {
         m.fill(cc, 255, 255);
         m.stroke(190, 255, 255);
         for(int y = 0; y< m.rows-1; y++) {
-
             m.beginShape(PConstants.TRIANGLE_STRIP);
-
             for(int x = 0; x < m.cols; x++) {
-                //draw the vertices
                 m.vertex(x*scl, y*scl,m.landscape[x][y]);
                 m.vertex(x*scl, (y+1)*scl,m.landscape[x][y+1]);
             }
             m.endShape();
         }
-
-
-
     }
 
     public void update() {
@@ -49,7 +43,13 @@ public class Flow implements Shape  {
             float x_offset =0;
             for(int x = 0; x < m.cols; x++) {
                 //last two parameters alter the pull amount of the vertice
-                m.landscape[x][y] = PApplet.map(m.noise(x_offset, y_offset), 0, 1, -m.lerpedAverage*1000, m.lerpedAverage*1000);
+                m.landscape[x][y] = PApplet.map(
+                        m.noise(x_offset, y_offset), 
+                        0, 
+                        1, 
+                        -m.lerpedAverage*1000, 
+                        m.lerpedAverage*1000
+                    );
                 //change the offsets to mess around with the visual
                 x_offset += 0.2; 
             }

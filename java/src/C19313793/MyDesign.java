@@ -117,7 +117,6 @@ public class MyDesign extends Visual{
                 flow.render();
                 flow.update();
                 break;
-
             }
 
             // cool rectangles and some crazy waveform
