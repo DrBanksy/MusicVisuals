@@ -91,7 +91,8 @@ The 'Flow' class has two methods:
  - The flow/speed of the visual is controlled by the move variable which is calculated using the product of the lerpedAverage and the mouseX variable.
  - Each element in the landscape arary is a value which has been mapped from the value 0-1 to a negative and postive lerpedAverage value. Furthemore, each element in the array is used for the z parameter in the render method for the vertices. It affects the amount of 'pull' on the vertices.
 
-
+# Demo
+https://www.youtube.com/watch?v=w5WOG-6Hb7c
 # Markdown Tutorial
 
 This is *emphasis*
