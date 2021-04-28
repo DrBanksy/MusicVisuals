@@ -92,7 +92,7 @@ The 'Flow' class has two methods:
  - Each element in the landscape arary is a value which has been mapped from the value 0-1 to a negative and postive lerpedAverage value. Furthemore, each element in the array is used for the z parameter in the render method for the vertices. It affects the amount of 'pull' on the vertices.
 
 # Demo
-![YouTube](https://www.youtube.com/watch?v=w5WOG-6Hb7c)
+[![YouTube](https://i9.ytimg.com/vi_webp/w5WOG-6Hb7c/mqdefault.webp?time=1619637000000&sqp=CIjmpoQG&rs=AOn4CLBg7eGKn8ySzH4l3B4tL2rc_dmT-Q)](https://www.youtube.com/watch?v=w5WOG-6Hb7c)
 
 # Markdown Tutorial
 
